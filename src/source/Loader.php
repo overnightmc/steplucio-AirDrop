@@ -42,6 +42,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\utils\Config;
 use pocketmine\utils\Filesystem;
+use pocketmine\utils\SingletonTrait;
 use pocketmine\utils\TextFormat;
 use pocketmine\utils\Utils;
 use pocketmine\world\format\io\GlobalBlockStateHandlers;
@@ -52,9 +53,15 @@ use source\tile\Dispenser as TileDispenser;
 use Symfony\Component\Filesystem\Path;
 
 class Loader extends PluginBase{
+    use SingletonTrait;
     const TYPE_DISPENSER="joshet18:dispenser";
 
+    public static function getInstance(): Loader{
+        return self::$instance;
+    }
+
     public function onEnable():void{
+        self::setInstance($this);
         if(!InvMenuHandler::isRegistered())InvMenuHandler::register($this);
         EntityFactory::getInstance()->register(AirDropFallingBlock::class,fn(World $world,CompoundTag $nbt):AirDropFallingBlock=>new AirDropFallingBlock(EntityDataHelper::parseLocation($nbt, $world),$nbt),['AirdropFallingBlock']);
         InvMenuHandler::getTypeRegistry()->register(self::TYPE_DISPENSER,InvMenuTypeBuilders::BLOCK_ACTOR_FIXED()->setBlock(ExtraVanillaBlocks::DISPENSER())->setBlockActorId("Dispenser")->setSize(9)->setNetworkWindowType(WindowTypes::DISPENSER)->build());
@@ -74,6 +81,9 @@ class Loader extends PluginBase{
 
     public function getConfig():Config{
         return new Config($this->getDataFolder()."config.json",Config::JSON,[
+            'block'=>[
+                'inventory_display'=>''
+            ],
             'item'=>[
                 'custom_name'=>'&r&3AirDrop&r',
                 'lore'=>[]

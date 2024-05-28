@@ -23,12 +23,14 @@ use pocketmine\network\mcpe\convert\TypeConverter;
 use pocketmine\network\mcpe\protocol\types\entity\EntityIds;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataCollection;
 use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\utils\TextFormat;
 use pocketmine\utils\Utils;
 use pocketmine\world\format\io\GlobalBlockStateHandlers;
 use pocketmine\world\particle\HugeExplodeParticle;
 use pocketmine\world\sound\ExplodeSound;
 use source\block\Dispenser as BlockDispenser;
 use source\ExtraVanillaBlocks;
+use source\Loader;
 use source\tile\Dispenser;
 
 class AirDropFallingBlock extends \pocketmine\entity\Entity{
@@ -88,6 +90,7 @@ class AirDropFallingBlock extends \pocketmine\entity\Entity{
 				$world->addSound($this->getPosition(),new ExplodeSound());
 				$tile=$world->getTile($pos);
                 if($tile instanceof Dispenser){
+					$tile->setName(TextFormat::colorize(Loader::getInstance()->getConfig()->getNested('block.inventory_display','')));
 					$items=$this->getLoot();
 					shuffle($items);
 					shuffle($items);
