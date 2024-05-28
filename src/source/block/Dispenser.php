@@ -39,9 +39,8 @@ class Dispenser extends Opaque{
 			$tile = $this->position->getWorld()->getTile($this->position);
             if($tile instanceof TileDispenser){
                 ($menu=InvMenu::create(Loader::TYPE_DISPENSER))->setInventory($tile->getInventory());
-                $menu->send($player);
+                $menu->send($player,$tile->getName());
             }
-			//if($tile instanceof TileDispenser)$player->setCurrentWindow($tile->getInventory());
 		}
 		return true;
 	}
