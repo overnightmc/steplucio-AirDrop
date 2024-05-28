@@ -1,18 +1,16 @@
 <?php
 
-namespace source\tile;
+namespace source\airdrop\tile;
 
 use pocketmine\block\tile\Spawnable;
-use pocketmine\block\tile\Chest;
 use pocketmine\block\tile\Container;
 use pocketmine\block\tile\ContainerTrait;
 use pocketmine\block\tile\Nameable;
 use pocketmine\block\tile\NameableTrait;
-use pocketmine\inventory\Inventory;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\world\World;
-use source\inventory\DispenserInventory;
+use source\airdrop\inventory\DispenserInventory;
 
 class Dispenser extends Spawnable implements Container, Nameable{
 	use NameableTrait;

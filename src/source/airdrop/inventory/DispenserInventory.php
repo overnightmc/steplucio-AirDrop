@@ -1,6 +1,6 @@
 <?php
 
-namespace source\inventory;
+namespace source\airdrop\inventory;
 
 use Closure;
 use pocketmine\block\inventory\BlockInventory;

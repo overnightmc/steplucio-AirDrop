@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace source;
+namespace source\airdrop;
 
 use pocketmine\block\Block;
 use pocketmine\block\BlockBreakInfo;
@@ -11,8 +11,8 @@ use pocketmine\block\BlockTypeIds;
 use pocketmine\block\BlockTypeInfo;
 use pocketmine\item\ToolTier;
 use pocketmine\utils\CloningRegistryTrait;
-use source\block\Dispenser;
-use source\tile\Dispenser as TileDispenser;
+use source\airdrop\block\Dispenser;
+use source\airdrop\tile\Dispenser as TileDispenser;
 
 /**
  * @method static Dispenser DISPENSER()

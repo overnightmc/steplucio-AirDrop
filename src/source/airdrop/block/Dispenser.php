@@ -1,6 +1,6 @@
 <?php
 
-namespace source\block;
+namespace source\airdrop\block;
 
 use muqsit\invmenu\InvMenu;
 use pocketmine\block\Block;
@@ -11,9 +11,8 @@ use pocketmine\item\Item;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
 use pocketmine\world\BlockTransaction;
-use pocketmine\block\Chest;
-use source\Loader;
-use source\tile\Dispenser as TileDispenser;
+use source\airdrop\Loader;
+use source\airdrop\tile\Dispenser as TileDispenser;
 
 class Dispenser extends Opaque{
     use AnyFacingTrait;

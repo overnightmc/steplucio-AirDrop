@@ -1,6 +1,6 @@
 <?php
 
-namespace source;
+namespace source\airdrop;
 
 use Exception;
 use muqsit\invmenu\InvMenu;
@@ -47,9 +47,9 @@ use pocketmine\utils\TextFormat;
 use pocketmine\utils\Utils;
 use pocketmine\world\format\io\GlobalBlockStateHandlers;
 use pocketmine\world\World;
-use source\block\Dispenser;
-use source\entity\AirDropFallingBlock;
-use source\tile\Dispenser as TileDispenser;
+use source\airdrop\block\Dispenser;
+use source\airdrop\entity\AirDropFallingBlock;
+use source\airdrop\tile\Dispenser as TileDispenser;
 use Symfony\Component\Filesystem\Path;
 
 class Loader extends PluginBase{

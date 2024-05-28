@@ -1,5 +1,5 @@
 name: AirDrop
-main: source\Loader
+main: source\airdrop\Loader
 version: 1.0.0
 api: 5.15.0
 author: Joshet18
